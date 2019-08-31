@@ -1,0 +1,10 @@
+browser:
+  chrome
+chrome:
+  chromewin32/chromedriver.exe
+firefox:
+  firefoxwin64/geckodriver.exe
+ie32:
+  iewin32/IEDriverServer.exe
+ie64:
+  iewin64/IEDriverServer.exe

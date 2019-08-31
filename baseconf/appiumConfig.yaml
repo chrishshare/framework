@@ -1,0 +1,38 @@
+appInfo:
+  app: app_path
+  appActivity: app entry activaty
+  appPackage: app package
+
+appium_config:
+  automationName: Appium
+  platformName: android
+  newCommandTimeout: 60
+  autoWebview: false
+  noReset: false
+  fullReset: false
+  printPageSourceOnFindFailure: true
+  clearSystemFiles: true
+  appWaitDuration: 20000
+  adbPort: 5200
+  autoWebviewTimeout: 2000
+  unicodeKeyboard: true
+  resetKeyboard: true
+  #  set browsername
+  #  Name of mobile web browser to automate. Should be an empty string if automating an app instead. 'Safari' for iOS and 'Chrome', 'Chromium', or 'Browser' for Android
+  browserName: Chrome
+
+# only support on device avaliable
+device:
+  device1:
+    avaliable: false
+    deviceName: devicesn
+    platformVersion: 9.0.1
+  device2:
+    avaliable: true
+    deviceName: devicesn1
+    platformVersion: 9.0.2
+
+
+
+remoteurl: http://localhost:4723/wd/hub
+

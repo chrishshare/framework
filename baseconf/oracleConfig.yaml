@@ -1,0 +1,4 @@
+oracle:
+  username: username
+  password: password
+  connstr: 192.168.237.128:1521@ocrl
