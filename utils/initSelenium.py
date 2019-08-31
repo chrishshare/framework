@@ -1,5 +1,5 @@
 from selenium import webdriver
-from utils.yamlParser import parser_yaml_to_dict
+from utils.yamlParser import YamlParser
 from getrootdir import root_path
 import os
 from getrootdir import root_path
@@ -10,7 +10,7 @@ class InitSelenium:
     def __init__(self):
         self._driver_root_path = root_path + os.sep + 'browserdriver' + os.sep
         self._logger = InitLogging().init_logging()
-        self._selenium_cf = parser_yaml_to_dict('seleniumConfig.yaml')
+        self._selenium_cf = YamlParser().parser_common_conf(cf='seleniumConfig.yaml')
 
     def init_selenium_webdriver(self):
         driver = ''
