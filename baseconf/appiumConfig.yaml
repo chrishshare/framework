@@ -24,7 +24,7 @@ appium_config:
 # only support on device avaliable
 device:
   device1:
-    avaliable: false
+    available: false
     deviceName: devicesn
     platformVersion: 9.0.1
   device2:
