@@ -11,7 +11,7 @@ class InitAppium:
         """
         self._appium_cf = YamlParser().parser_common_conf(cf='appiumConfig.yaml')
 
-    def _get_avaliable_device(self):
+    def _get_available_device(self):
         """
         get avaliable device
         :return:
@@ -38,7 +38,7 @@ class InitAppium:
         desired_caps.update(self._appium_cf.get('appInfo'))
         # appium common settings
         desired_caps.update(self._appium_cf.get('appium_config'))
-        desired_caps.update(self._get_avaliable_device())
+        desired_caps.update(self._get_available_device())
 
         # init webdriver
         driver = webdriver.Remote(self._appium_cf.get('remoteurl'), desired_caps)
