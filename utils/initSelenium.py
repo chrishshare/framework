@@ -11,6 +11,7 @@ class InitSelenium:
         self._driver_root_path = root_path + os.sep + 'browserdriver' + os.sep
         self._logger = InitLogging().init_logging()
         self._selenium_cf = YamlParser().parser_common_conf(cf='seleniumConfig.yaml')
+        self._project_url = YamlParser().parser_common_conf(cf='projectconfig.yaml').get('projecturl')
 
     def init_selenium_webdriver(self):
         driver = ''
@@ -27,6 +28,8 @@ class InitSelenium:
             self._logger.error('输入的浏览器目前尚未支持')
         #     浏览器窗口最大化
         driver.maximize_window()
+        driver.get(self._project_url)
+        driver.implicitly_wait(30)
         return driver
 
 
