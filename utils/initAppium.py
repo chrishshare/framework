@@ -9,14 +9,14 @@ class InitAppium:
         """
         init appium config yaml file
         """
-        self._yaml_dict = YamlParser().parser_common_conf(cf='appiumConfig.yaml')
+        self._appium_cf = YamlParser().parser_common_conf(cf='appiumConfig.yaml')
 
     def _get_avaliable_device(self):
         """
         get avaliable device
         :return:
         """
-        device_list = self._yaml_dict.get('device')
+        device_list = self._appium_cf.get('device')
 
         # {'device1': {'avaliable': True, 'deviceName': 'devicesn', 'platformVersion': '9.0.1'},
         #                 'device2': {'avaliable': False, 'deviceName': 'devicesn', 'platformVersion': '9.0.1'}}
@@ -35,13 +35,13 @@ class InitAppium:
         """
         desired_caps = {}
         # appilcation settings
-        desired_caps.update(self._yaml_dict.get('appInfo'))
+        desired_caps.update(self._appium_cf.get('appInfo'))
         # appium common settings
-        desired_caps.update(self._yaml_dict.get('appium_config'))
+        desired_caps.update(self._appium_cf.get('appium_config'))
         desired_caps.update(self._get_avaliable_device())
 
         # init webdriver
-        driver = webdriver.Remote(self._yaml_dict.get('remoteurl'), desired_caps)
+        driver = webdriver.Remote(self._appium_cf.get('remoteurl'), desired_caps)
         return driver
 
 
