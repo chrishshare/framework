@@ -1,5 +1,5 @@
 from appium import webdriver
-from utils.yamlParser import parser_yaml_to_dict
+from utils.yamlParser import YamlParser
 from getrootdir import root_path
 import os
 
@@ -9,7 +9,7 @@ class InitAppium:
         """
         init appium config yaml file
         """
-        self._yaml_dict = parser_yaml_to_dict(root_path + os.sep + 'baseconf' + os.sep + 'appiumConfig.yaml')
+        self._yaml_dict = YamlParser().parser_common_conf(cf='appiumConfig.yaml')
 
     def _get_avaliable_device(self):
         """
