@@ -34,4 +34,4 @@ class InitSelenium:
 
 
 if __name__ == '__main__':
-    InitSelenium().init_selenium_webdriver().get('https://www.baidu.com')
+    InitSelenium().init_selenium_webdriver()
