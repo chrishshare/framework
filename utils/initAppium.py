@@ -21,7 +21,8 @@ class InitAppium:
         # {'device1': {'avaliable': True, 'deviceName': 'devicesn', 'platformVersion': '9.0.1'},
         #                 'device2': {'avaliable': False, 'deviceName': 'devicesn', 'platformVersion': '9.0.1'}}
         for key, value in device_list.items():
-            if value.get('avaliable'):
+            if value.get('available'):
+                del value['available']
                 return value
 
     def init_appium_webdriver(self):
@@ -46,4 +47,4 @@ class InitAppium:
 
 
 if __name__ == '__main__':
-    InitAppium().init_webdriver()
+    InitAppium().init_appium_webdriver()
