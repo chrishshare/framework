@@ -3,3 +3,5 @@
 * 使用yaml作为配置文件
 * 支持web 应用
 * 支持安卓APP
+JayDeBeApi使用说明
+https://pypi.org/project/JayDeBeApi/
