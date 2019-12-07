@@ -71,16 +71,17 @@ class InitDriverUtil:
         desired_caps = {}
 
         # appilcation settings
-        desired_caps.update(self._conf.get('appInfo'))
+        project = self._conf.get('project')
+        desired_caps.update(self._conf.get(project).get('appInfo'))
 
         # appium common settings
         desired_caps.update(self._conf.get('appium_config'))
 
-        # useDevice仅用于定位设备，不是desired_caps属性，删除
-        del desired_caps['useDevice']
+        # 获取设备名称
+        device_name = self._conf.get(project).get('useDevice')
 
         # 设备信息
-        device_info = self._conf.get('device').get(self._conf.get('appInfo').get('useDevice'))
+        device_info = self._conf.get(device_name)
         desired_caps.update(device_info)
 
         # init webdriver
@@ -89,5 +90,5 @@ class InitDriverUtil:
 
 
 if __name__ == '__main__':
-    InitDriverUtil().init_web_driver()
+    # InitDriverUtil().init_web_driver()
     InitDriverUtil().init_appium_driver()

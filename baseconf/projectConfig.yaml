@@ -1,10 +1,12 @@
 #***********************  web项目配置 开始 ******************************************
 #项目使用项配置
-projectType: web
-project: rewardbase2
+#projectType仅支持web、app、api
+projectType: app
+project: appOperateInfo
 browser: chrome_x86_v78
 
-#  项目信息配置，适配不同地址，每个地址增加一个配置
+#***************************** 项目配置 **************************************
+#  web项目配置示例
 rewardbase:
   url: https://www.baidu.com
   normalUser:
@@ -13,7 +15,6 @@ rewardbase:
   dbinfo:
     type: sqlite3        #数据库类型,mysql/oracle/hive/sqlite3
   timeout: 30
-
 
 rewardbase2:
   url: https://www.baidu.com
@@ -24,8 +25,22 @@ rewardbase2:
     type: mysql        #数据库类型,mysql/oracle/hive/sqlite3
   timeout: 30
 
+# APK配置示例
+appOperateInfo:
+  appInfo:
+    appName: baidu.apk
+    appActivity: com.baidu.searchbox.MainActivity
+    appPackage: com.baidu.searchbox
+  useDevice: device1
+  normalUser:
+    username: admin
+    password: admin123
+  dbinfo:
+    type: oracle        #数据库类型
 
-#数据库配置
+
+
+#***************************** 数据库配置 *************************************
 mysql:
   jdbcClass: com.mysql.jdbc.Driver
   jdbcurl: jdbc:mysql://127.0.0.1:3306/autoadmin
@@ -42,49 +57,26 @@ sqlite:
   jdbcClass: org.sqlite.JDBC
   jdbcurl: jdbc:sqlite:D:\01_Devspace\python\autotest\autotest\db.sqlite3
 
-# 浏览器驱动
+
+#***************************** 浏览器驱动配置 *************************************
 webbrowser:
   chrome_x86_v78: chromedriver_win32_78.exe
   firefox_x86_0.26.0: geckodriver-v0.26.0-win32.exe
   firefox_x64_0.26.0: geckodriver-v0.26.0-win64.exe
   ie_x86_3.150.1: IEDriverServer_Win32_3.150.1.exe
   ie_x64_3.150.1: IEDriverServer_x64_3.150.1.exe
-#***********************  web项目配置 结束 ******************************************
 
 
-
-#***********************  安卓项目配置 开始 ******************************************
-#安卓项目配置
-#  app: imooc7.2.310102001android.apk
-#  appActivity: com.imooc.component.imoocmain.index.MCMainActivity
-#  appPackage: cn.com.open.mooc
-appInfo:
-  app: baidu.apk
-  appActivity: com.baidu.searchbox.MainActivity
-  appPackage: com.baidu.searchbox
-  useDevice: device1
-
-appOperateInfo:
-  normalUser:
-    username: admin
-    password: admin123
-    dbinfo:
-      type: oracle        #数据库类型
-      username: gdcoms    #数据库用户名
-      password: gdcoms    #数据库密码
-      connectstr: 100.100.233.102:1521/CMOPDB     #数据库连接串
-
-#安卓设备信息配置，目前仅支持同时有一台设备生效
-device:
-  device1:
-    deviceName: 7396257f
-    platformVersion: 9
-  device2:
-    deviceName: emulator-5554
-    platformVersion: 7.1.2
+#***************************** 安卓设备信息配置 *************************************
+device1:
+  deviceName: 7396257f
+  platformVersion: 9
+device2:
+  deviceName: emulator-5554
+  platformVersion: 7.1.2
 
 
-#appium 配置
+#***************************** APPIUM配置 *************************************
 appium_config:
   automationName: uiautomator2
   platformName: android
@@ -103,7 +95,3 @@ appium_config:
   #  set browsername
   #  Name of mobile web browser to automate. Should be an empty string if automating an app instead. 'Safari' for iOS and 'Chrome', 'Chromium', or 'Browser' for Android
 #  browserName: Chrome
-
-# only support on device avaliable
-
-#***********************  安卓项目配置 结束 ******************************************
