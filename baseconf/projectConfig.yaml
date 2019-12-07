@@ -1,7 +1,7 @@
 #***********************  web项目配置 开始 ******************************************
 #项目使用项配置
 projectType: web
-project: rewardbase
+project: rewardbase2
 browser: chrome_x86_v78
 
 #  项目信息配置，适配不同地址，每个地址增加一个配置
@@ -20,6 +20,33 @@ rewardbase:
     port: 3306          # 数据库端口，mysql、hive有效
   timeout: 30
 
+
+rewardbase2:
+  url: https://www.baidu.com
+  normalUser:
+    username: admin
+    password: admin123
+  dbinfo:
+    type: mysql        #数据库类型,mysql/oracle/hive/sqlite3
+  timeout: 30
+
+
+#数据库配置
+mysql:
+  jdbcClass: com.mysql.jdbc.Driver
+  jdbcurl: jdbc:mysql://127.0.0.1:3306/autoadmin
+  username: autoadmin
+  password: Zwx232372
+
+oracle:
+  jdbcClass: oracle.jdbc.driver.OracleDriver
+  jdbcurl: jdbc:oracle:thin:@localhost:1521:yfbceg
+  username: autoadmin
+  password: Zwx232372
+
+sqlite:
+  jdbcClass: org.sqlite.JDBC
+  jdbcurl: jdbc:sqlite:D:\01_Devspace\python\autotest\autotest\db.sqlite3
 
 # 浏览器驱动
 webbrowser:
