@@ -12,12 +12,6 @@ rewardbase:
     password: admin123
   dbinfo:
     type: sqlite3        #数据库类型,mysql/oracle/hive/sqlite3
-    username: autoframe    #数据库用户名,mysql/oracle/hive
-    password: Zhsy08281128    #数据库密码,mysql/oracle/hive
-    database: CMOPDB  #数据库名称（实例），仅type为mysql/hive时有效
-    dbfile: D:\01_Devspace\python\autotest\autotest\db.sqlite3     #数据库文件，仅type为sqlite、hive时有效
-    connectstr: 127.0.0.1    #数据库连接串，数据库为oralce时：100.100.233.102:1521/CMOPDB,其他数据库直接写url
-    port: 3306          # 数据库端口，mysql、hive有效
   timeout: 30
 
 
