@@ -124,3 +124,4 @@ device1:  #设备名称
 
 
 ## appium_config APPIUM配置，默认配置，不用修改
+
