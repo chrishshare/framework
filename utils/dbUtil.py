@@ -28,9 +28,15 @@ class dbUtil:
         # jdbcurl: jdbc:oracle: thin:
 
     def connect_database(self):
+        """
+        连接数据库
+        :return:
+        """
+        # jdbc驱动包路径
         lib_path = root_path + os.sep + 'libs' + os.sep
         conn = None
         cursor = None
+        # 根据配置的不同数据库类型选择对应的驱动并初始化连接
         if operator.eq(self._dbtype, 'oralce'):
             conn = jdbc.connect(jclassname=self._jdbcclass, jars=lib_path + 'mysql-connector-java-8.0.16.jar',
                                 url=self._jdbcurl, driver_args={'user': self._username, 'password': self._password})
@@ -52,6 +58,13 @@ class dbUtil:
         return {'conn': conn, 'cursor': cursor}
 
     def execute_single_sql(self, operate, sql, parameters=None):
+        """
+        执行单个SQL语句
+        :param operate: SQL类型，DML、DDL
+        :param sql:  SQL语句
+        :param parameters:  SQL参数
+        :return: 查询结果集
+        """
         db_obj = self.connect_database()
         db_obj.get('cursor').execute(operation=sql, parameters=parameters)
         if operator.eq(operate, 'ddl'):
