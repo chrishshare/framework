@@ -37,7 +37,7 @@ class dbUtil:
         conn = None
         cursor = None
         # 根据配置的不同数据库类型选择对应的驱动并初始化连接
-        if operator.eq(self._dbtype, 'oralce'):
+        if operator.eq(self._dbtype, 'oracle'):
             conn = jdbc.connect(jclassname=self._jdbcclass, jars=lib_path + 'mysql-connector-java-8.0.16.jar',
                                 url=self._jdbcurl, driver_args={'user': self._username, 'password': self._password})
             cursor = conn.cursor()
