@@ -1,8 +1,8 @@
 # -*- coding: UTF8 -*-
+import jaydebeapi as jdbc
 from utils.logUtil import InitLogging
 from utils.yamlParser import YamlParser
 import operator
-import jaydebeapi as jdbc
 from getrootdir import root_path
 import os
 
@@ -18,16 +18,13 @@ class dbUtil:
         self._dbtype = self._dbinfo.get('type')
         self._username = self._yaml.get(self._dbtype).get('username')
         self._password = self._yaml.get(self._dbtype).get('password')
-        # self._database = self._dbinfo.get('database')
         self._jdbcclass = self._yaml.get(self._dbtype).get('jdbcClass')
         self._jdbcurl = self._yaml.get(self._dbtype).get('jdbcurl')
-        # self._dbfile = self._dbinfo.get('dbfile')
-        # self._connstr = self._dbinfo.get('connectstr')
-        # self._port = self._dbinfo.get('port')
-        # jdbcClass: oracle.jdbc.driver.OracleDriver
-        # jdbcurl: jdbc:oracle: thin:
 
     def connect_database(self):
+        """
+        连接数据库
+        """
         lib_path = root_path + os.sep + 'libs' + os.sep
         conn = None
         cursor = None
@@ -52,6 +49,14 @@ class dbUtil:
         return {'conn': conn, 'cursor': cursor}
 
     def execute_single_sql(self, operate, sql, parameters=None):
+        """
+        执行单个ＳＱＬ
+        :param operate: 　操作类型，ddl／dml
+        :param sql: sql语句
+        :param parameters: sql参数
+        :return:　查询结果集
+        """
+
         db_obj = self.connect_database()
         db_obj.get('cursor').execute(operation=sql, parameters=parameters)
         if operator.eq(operate, 'ddl'):
