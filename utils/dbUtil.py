@@ -32,17 +32,17 @@ class dbUtil:
             conn = jdbc.connect(jclassname=self._jdbcclass, jars=lib_path + 'mysql-connector-java-8.0.16.jar',
                                 url=self._jdbcurl, driver_args={'user': self._username, 'password': self._password})
             cursor = conn.cursor()
-        if operator.eq(self._dbtype, 'mysql'):
+        elif operator.eq(self._dbtype, 'mysql'):
             conn = jdbc.connect(jclassname=self._jdbcclass, url=self._jdbcurl,
                                 driver_args={'user': self._username, 'password': self._password},
                                 jars=lib_path + 'mysql-connector-java-8.0.16.jar')
             cursor = conn.cursor()
-        if operator.eq(self._dbtype, 'sqlite３'):
+        elif operator.eq(self._dbtype, 'sqlite3'):
             conn = jdbc.connect(jclassname=self._jdbcclass, url=self._jdbcurl, jars=lib_path + 'sqlite-jdbc-3.28.0.jar')
             cursor = conn.cursor()
-        if operator.eq(self._dbtype, 'hive'):
+        elif operator.eq(self._dbtype, 'hive'):
             pass
-        if operator.eq(self._dbtype, 'gauss'):
+        elif operator.eq(self._dbtype, 'gauss'):
             pass
         else:
             self._logger.error('暂不支持%s数据库类型' % self._dbtype)

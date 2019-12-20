@@ -1,7 +1,7 @@
 #项目使用项配置
 #projectType仅支持web、app、api
-projectType: app
-project: appOperateInfo
+projectType: web
+project: rewardbase
 browser: chrome_x86_v78
 
 #***************************** 项目配置 **************************************
@@ -52,7 +52,7 @@ oracle:
   username: autoadmin
   password: Zwx232372
 
-sqlite３:
+sqlite3:
   jdbcClass: org.sqlite.JDBC
   jdbcurl: jdbc:sqlite:D:\01_Devspace\python\autotest\autotest\db.sqlite3
   username:
