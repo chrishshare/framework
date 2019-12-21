@@ -37,7 +37,7 @@ class dbUtil:
                                 driver_args={'user': self._username, 'password': self._password},
                                 jars=lib_path + 'mysql-connector-java-8.0.16.jar')
             cursor = conn.cursor()
-        if operator.eq(self._dbtype, 'sqlite'):
+        if operator.eq(self._dbtype, 'sqlite３'):
             conn = jdbc.connect(jclassname=self._jdbcclass, url=self._jdbcurl, jars=lib_path + 'sqlite-jdbc-3.28.0.jar')
             cursor = conn.cursor()
         if operator.eq(self._dbtype, 'hive'):
@@ -48,12 +48,12 @@ class dbUtil:
             self._logger.error('暂不支持%s数据库类型' % self._dbtype)
         return {'conn': conn, 'cursor': cursor}
 
-    def execute_single_sql(self, operate, sql, parameters=None):
+    def execute_sql(self, operate, sql, parameters=None):
         """
         执行单个ＳＱＬ
         :param operate: 　操作类型，ddl／dml
-        :param sql: sql语句
-        :param parameters: sql参数
+        :param sql: sql语句，使用参数的方式时，sql必须使用　：variable的方式绑定变量
+        :param parameters: sql参数，传入字典族
         :return:　查询结果集
         """
 
@@ -69,4 +69,4 @@ class dbUtil:
 
 if __name__ == '__main__':
     sql = """select * from auth_user"""
-    print(dbUtil().execute_single_sql(sql=sql, operate='dml'))
+    print(dbUtil().execute_sql(sql=sql, operate='dml'))
