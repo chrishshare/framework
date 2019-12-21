@@ -55,6 +55,8 @@ oracle:
 sqlite:
   jdbcClass: org.sqlite.JDBC
   jdbcurl: jdbc:sqlite:D:\01_Devspace\python\autotest\autotest\db.sqlite3
+  username:
+  password:
 
 
 #***************************** 浏览器驱动配置 *************************************
