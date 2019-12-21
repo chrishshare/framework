@@ -54,7 +54,8 @@ oracle:
 
 sqlite3:
   jdbcClass: org.sqlite.JDBC
-  jdbcurl: jdbc:sqlite:D:\01_Devspace\python\autotest\autotest\db.sqlite3
+#  jdbcurl: jdbc:sqlite:D:\01_Devspace\python\autotest\autotest\db.sqlite3
+  jdbcurl: jdbc:sqlite:/mnt/wind/01_Devspace/python/autotest/autotest/db.sqlite3
   username:
   password:
 
