@@ -52,7 +52,7 @@ oracle:
   username: autoadmin
   password: Zwx232372
 
-sqlite:
+sqlite３:
   jdbcClass: org.sqlite.JDBC
   jdbcurl: jdbc:sqlite:D:\01_Devspace\python\autotest\autotest\db.sqlite3
   username:
