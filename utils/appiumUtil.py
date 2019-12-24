@@ -1,9 +1,10 @@
 # -*- coding: UTF8 -*-
+from utils.initDriverUtil import InitDriverUtil
 
 
 class ApppiumUtil:
     def __init__(self, driver):
-        self._driver = driver
+        self._driver = InitDriverUtil().select_driver()
 
     def switch_to_webview(self):
         """

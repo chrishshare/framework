@@ -1,8 +1,6 @@
 from selenium import webdriver
 from utils.yamlParser import YamlParser
-from getrootdir import root_path
 import os
-from getrootdir import root_path
 from utils.logUtil import InitLogging
 from getrootdir import root_path
 import operator
@@ -24,13 +22,13 @@ class InitDriverUtil:
     def select_driver(self):
         project_type = self._conf.get('projectType')
         if 'web' == project_type:
-            return self.init_web_driver()
+            return self._init_web_driver()
         elif 'app' == project_type:
-            return self.init_appium_driver()
+            return self._init_appium_driver()
         else:
             self._logger.error("当前仅支持app、web两种类型的项目！")
 
-    def init_web_driver(self):
+    def _init_web_driver(self):
         """
         初始化web浏览器
         :return: driver
@@ -63,7 +61,7 @@ class InitDriverUtil:
         driver.implicitly_wait(self._conf.get(project).get('timeout'))
         return driver
 
-    def init_appium_driver(self):
+    def _init_appium_driver(self):
         """
         初始化appium驱动
         :return: driver
@@ -91,4 +89,4 @@ class InitDriverUtil:
 
 if __name__ == '__main__':
     # InitDriverUtil().init_web_driver()
-    InitDriverUtil().init_appium_driver()
+    InitDriverUtil()._init_appium_driver()
