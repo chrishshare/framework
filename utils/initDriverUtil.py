@@ -20,6 +20,10 @@ class InitDriverUtil:
         self._driver_root_path = self._project_root + os.sep + 'drivers' + os.sep
 
     def select_driver(self):
+        """
+        选择驱动类型
+        :return:
+        """
         project_type = self._conf.get('projectType')
         if 'web' == project_type:
             return self._init_web_driver()
