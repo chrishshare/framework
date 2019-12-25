@@ -8,8 +8,13 @@ from selenium.webdriver.support.wait import WebDriverWait
 class SeleniumUtil:
     def __init__(self):
         self._driver = InitDriverUtil().select_driver()
+        self._yml = YamlParser()
 
-    # def is_element_exists(self):
-    #     element = WebDriverWait(driver=self._driver, timeout=20, poll_frequency=0.5).until()
+    def fw_find_element(self, cf, el):
+        location = self._yml.parser_elements_from_yaml(cf=cf, element=el)
+        element = self._driver.find_element(by=location.get('定位方式'), value='定位表达式')
+        return element
+
+
 
 

@@ -19,23 +19,33 @@ class YamlParser:
             content = yaml.load(f.read(), Loader=yaml.Loader)
         return content
 
-    def parser_test_data_conf(self, cf):
+    def parser_data_from_yaml(self, cf, data):
         """
-        解析testdata目录下的yaml文件
-        :param cf: yaml文件名
+         解析testdata目录下的yaml文件
+        :param cf: yaml配置文件
+        :param data: 字段名称
         :return: dict
         """
         with open(self._test_data_conf + cf, 'r', encoding='utf-8') as f:
             content = yaml.load(f.read(), Loader=yaml.Loader)
-        return content
+        result = content.get(data)
+        return result
 
-    def parser_element_conf(self, cf):
+    def parser_elements_from_yaml(self, cf, element):
         """
         解析elements目录下的yaml文件
-        :param cf: yaml文件名
-        :return: dict
+        :param cf: yaml配置文件
+        :param element:
+        :return:
         """
         with open(self._element_conf + cf, 'r', encoding='utf-8') as f:
             content = yaml.load(f.read(), Loader=yaml.Loader)
-        return content
+        result = content.get(element)
+        return result
+
+
+if __name__ == '__main__':
+    yml = YamlParser()
+    print(yml.parser_data_from_yaml(cf='demo.yaml', data='搜索关键字'))
+    print(yml.parser_elements_from_yaml(cf='commonElements.yaml', element='用户名'))
 
