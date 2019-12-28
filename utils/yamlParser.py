@@ -9,7 +9,7 @@ class YamlParser:
         self._test_data_conf = root_path + os.sep + 'testdata' + os.sep
         self._element_conf = root_path + os.sep + 'elements' + os.sep
 
-    def parser_common_conf(self, cf):
+    def parser_common_conf(self, cf='projectConfig.yaml'):
         """
         解析baseconf目录下的yaml文件
         :param cf: yaml文件名
