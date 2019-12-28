@@ -220,6 +220,14 @@ class _TestResult(TestResult):
 
 class HTMLTestRunner(Template_mixin):
     def __init__(self, path, verbosity=1, title='测试报告', is_thread=False, retry=0, save_last_try=True):
+        """
+        :param path: 测试报告存放路径
+        :param verbosity:  日志级别
+        :param title: 报告名称
+        :param is_thread:
+        :param retry: 重跑次数
+        :param save_last_try: 是否只保存最后一次重跑结果
+        """
         self.retry = retry
         self.is_thread = is_thread
         self.threads = 5
@@ -231,6 +239,7 @@ class HTMLTestRunner(Template_mixin):
 
     def run(self, test):
         "Run the given test case or test suite."
+        print(os.getpid())
         self.startTime = datetime.datetime.now()
         result = _TestResult(self.verbosity, self.retry, self.save_last_try)
         test(result)
@@ -308,8 +317,8 @@ class HTMLTestRunner(Template_mixin):
             channel=self.run_times,
         )
         output_json = json.dumps(output, ensure_ascii=False, indent=4)
-        with open(self.path + os.sep + '{}.json'.format(self.title), 'w', encoding='utf-8')as f:
-            f.write(output_json)
+        with open(self.path + os.sep + '{title}-{pid}.json'.format(title=self.title, pid=os.getpid()), 'a', encoding='utf-8')as f:
+            f.write(output_json + ',')
 
     def _generate_report(self, result):
         sortedResult = self.sortResult(result.result)
