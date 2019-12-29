@@ -3,7 +3,7 @@
 projectType: web
 project: rewardbase
 browser: chrome_x86_v78
-threadCount: 3
+threadCount: 2
 
 #***************************** 项目配置 **************************************
 #  web项目配置示例
