@@ -48,6 +48,9 @@ class InitDriverUtil:
         elif operator.contains(driver_version.lower(), 'ie'):
             driver_path = self._driver_root_path + 'ie' + os.sep + self._conf.get('webbrowser').get(driver_version)
             driver = webdriver.Ie(executable_path=driver_path)
+        elif operator.contains(driver_version.lower(), 'edge'):
+            driver_path = self._driver_root_path + 'edge' + os.sep + self._conf.get('webbrowser').get(driver_version)
+            driver = webdriver.Edge(executable_path=driver_path)
         else:
             self._logger.error('您选择的浏览器类型赞不支持')
 
