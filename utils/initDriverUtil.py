@@ -42,22 +42,28 @@ class InitDriverUtil:
         driver_version = self._conf.get('browser')
         distribute = self._conf.get('seleniumGrid')
         driver = ''
+        # 分布式开关开时，远程驱动浏览器，分布式开关关时本地驱动浏览器
         if not distribute.get('switch'):
+            # 本地驱动chrome浏览器
             if operator.contains(driver_version.lower(), 'chrome'):
                 driver_path = self._driver_root_path + 'chrome' + os.sep + self._conf.get('webbrowser').get(driver_version)
                 driver = webdriver.Chrome(executable_path=driver_path)
+            # 本地驱动firefox浏览器
             elif operator.contains(driver_version.lower(), 'firefox'):
                 driver_path = self._driver_root_path + 'firefox' + os.sep + self._conf.get('webbrowser').get(driver_version)
                 driver = webdriver.Firefox(executable_path=driver_path)
+            # 本地驱动ie浏览器
             elif operator.contains(driver_version.lower(), 'ie'):
                 driver_path = self._driver_root_path + 'ie' + os.sep + self._conf.get('webbrowser').get(driver_version)
                 driver = webdriver.Ie(executable_path=driver_path)
+            # 本地驱动edge浏览器
             elif operator.contains(driver_version.lower(), 'edge'):
                 driver_path = self._driver_root_path + 'edge' + os.sep + self._conf.get('webbrowser').get(driver_version)
                 driver = webdriver.Edge(executable_path=driver_path)
             else:
                 raise self._logger.error('您选择的浏览器类型赞不支持')
         elif distribute.get('switch'):
+            # 远程驱动chrome浏览器
             if operator.contains(driver_version.lower(), 'chrome'):
                 driver_path = self._driver_root_path + 'chrome' + os.sep + self._conf.get('webbrowser').get(
                     driver_version)
@@ -69,6 +75,7 @@ class InitDriverUtil:
                     "binary": driver_path,
                 }
                 driver = webdriver.Remote(command_executor=distribute.get('hubUrl'), desired_capabilities=chrome_desired)
+            # 远程驱动firefox浏览器，暂不支持
             elif operator.contains(driver_version.lower(), 'firefox'):
                 driver_path = self._driver_root_path + 'firefox' + os.sep + self._conf.get('webbrowser').get(
                     driver_version)
@@ -80,7 +87,8 @@ class InitDriverUtil:
                     "firefox_binary": driver_path,
 
                 }
-                driver = webdriver.Remote(command_executor=distribute.get('hubUrl'), desired_capabilities=webdriver.DesiredCapabilities.FIREFOX)
+                driver = webdriver.Remote(command_executor=distribute.get('hubUrl'), desired_capabilities=fox_desired)
+            # 远程本地驱动ie浏览器
             elif operator.contains(driver_version.lower(), 'ie'):
                 driver_path = self._driver_root_path + 'ie' + os.sep + self._conf.get('webbrowser').get(driver_version)
                 ie_desired = {
@@ -91,10 +99,18 @@ class InitDriverUtil:
                     "binary": driver_path,
                 }
                 driver = webdriver.Remote(command_executor=distribute.get('hubUrl'), desired_capabilities=ie_desired)
+            # 远程驱动edge浏览器，暂不支持
             elif operator.contains(driver_version.lower(), 'edge'):
                 driver_path = self._driver_root_path + 'edge' + os.sep + self._conf.get('webbrowser').get(
                     driver_version)
-                driver = webdriver.Edge(executable_path=driver_path)
+                edge_desired = {
+                    "browserName": "MicrosoftEdge",
+                    "platform": "WINDOWS",
+                    "cssSelectorsEnabled": True,
+                    "javascriptEnabled": True,
+                    "binary": driver_path,
+                }
+                driver = webdriver.Remote(command_executor=distribute.get('hubUrl'), desired_capabilities=edge_desired)
             else:
                 self._logger.error('您选择的浏览器类型赞不支持')
         driver.file_detector = LocalFileDetector()
