@@ -2,8 +2,8 @@
 #projectType仅支持web、app、api
 projectType: web
 project: rewardbase
-browser: edge_v81
-threadCount: 2
+browser: chrome_x86_v81
+threadCount: 1
 
 #***************************** 项目配置 **************************************
 #  web项目配置示例
@@ -64,9 +64,9 @@ sqlite3:
 #***************************** 浏览器驱动配置 *************************************
 webbrowser:
   chrome_x86_v81: chromedriver_win32_81.exe
-  firefox_x64_0.26.0: geckodriver-v0.26.0-win64.exe
-  ie_x86_3.150.1: IEDriverServer_Win32_3.150.1.exe
-  ie_x64_3.150.1: IEDriverServer_x64_3.150.1.exe
+  firefox_x64: geckodriver-v0.26.0-win64.exe
+  ie_x86: IEDriverServer_Win32_3.150.1.exe
+  ie_x64: IEDriverServer_x64_3.150.1.exe
   edge_v81: msedgedriver_81.exe
 
 
@@ -98,3 +98,9 @@ appium_config:
   #  set browsername
   #  Name of mobile web browser to automate. Should be an empty string if automating an app instead. 'Safari' for iOS and 'Chrome', 'Chromium', or 'Browser' for Android
 #  browserName: Chrome
+
+seleniumGrid:
+  switch: True
+  hubUrl: http://192.168.1.7:4444/wd/hub
+  uploadDir: dir
+  download: dir
