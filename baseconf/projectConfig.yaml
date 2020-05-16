@@ -64,9 +64,11 @@ sqlite3:
 #***************************** 浏览器驱动配置 *************************************
 webbrowser:
   chrome_x86_v81: chromedriver_win32_81.exe
+  #  分布式场景暂不支持firefox
   firefox_x64: geckodriver-v0.26.0-win64.exe
   ie_x86: IEDriverServer_Win32_3.150.1.exe
   ie_x64: IEDriverServer_x64_3.150.1.exe
+  #  分布式的情况下官方暂未支持edge
   edge_v81: msedgedriver_81.exe
 
 
