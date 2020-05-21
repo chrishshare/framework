@@ -113,7 +113,7 @@ class InitDriverUtil:
                 driver = webdriver.Remote(command_executor=distribute.get('hubUrl'), desired_capabilities=edge_desired)
             else:
                 self._logger.error('您选择的浏览器类型赞不支持')
-        driver.file_detector = LocalFileDetector()
+            driver.file_detector = LocalFileDetector()
         # 浏览器最大化
         driver.maximize_window()
 
