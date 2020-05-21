@@ -7,8 +7,8 @@ import operator
 
 
 class SeleniumUtil:
-    def __init__(self):
-        self._driver = InitDriverUtil().select_driver()
+    def __init__(self, driver):
+        self._driver = driver
         self._yml = YamlParser()
         self._logger = InitLogging().init_logging()
 
