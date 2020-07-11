@@ -13,7 +13,7 @@ rewardbase:
     username: admin
     password: admin123
   dbinfo:
-    type: sqlite3        #数据库类型,mysql/oracle/hive/sqlite3
+    type: mysql        #数据库类型,mysql/oracle/hive/sqlite3
   timeout: 30
 
 rewardbase2:
@@ -42,8 +42,8 @@ appOperateInfo:
 
 #***************************** 数据库配置 *************************************
 mysql:
-  jdbcClass: com.mysql.jdbc.Driver
-  jdbcurl: jdbc:mysql://127.0.0.1:3306/autoadmin
+  jdbcClass: com.mysql.cj.jdbc.Driver
+  jdbcurl: jdbc:mysql://127.0.0.1:3306/autoadmin?serverTimezone=UTC
   username: autoadmin
   password: Zwx232372
 
