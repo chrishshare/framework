@@ -1,6 +1,6 @@
 # -*- coding: UTF8 -*-
 import jaydebeapi as jdbc
-from utils.logUtil import InitLogging
+from pythonlog.utils.logUtil import init_logging
 from utils.yamlParser import YamlParser
 import operator
 from getrootdir import root_path
@@ -12,7 +12,7 @@ class dbUtil:
         """
         初始化连接串，并连接oracle
         """
-        self._logger = InitLogging().init_logging()
+        self._logger = init_logging()
         self._yaml = YamlParser().parser_common_conf(cf='projectConfig.yaml')
         self._dbinfo = self._yaml.get(self._yaml.get('project')).get('dbinfo')
         self._dbtype = self._dbinfo.get('type')

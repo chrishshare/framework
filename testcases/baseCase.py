@@ -1,6 +1,6 @@
 # -*- coding:utf8 -*-
 from utils.initDriverUtil import InitDriverUtil
-from utils.logUtil import InitLogging
+from pythonlog.utils.logUtil import init_logging
 import unittest
 
 
@@ -8,7 +8,7 @@ class BaseCase(unittest.TestCase):
     @classmethod
     def setUpClass(cls) -> None:
         cls.driver = InitDriverUtil().select_driver()
-        cls.logger = InitLogging()
+        cls.logger = init_logging()
 
     @classmethod
     def tearDownClass(cls) -> None:

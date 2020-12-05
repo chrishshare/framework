@@ -1,7 +1,7 @@
 from selenium import webdriver
 from utils.yamlParser import YamlParser
 import os
-from utils.logUtil import InitLogging
+from pythonlog.utils.logUtil import init_logging
 from getrootdir import root_path
 import operator
 from selenium.webdriver.remote.file_detector import LocalFileDetector
@@ -16,7 +16,7 @@ class InitDriverUtil:
     @MODIFIED_DATE:
     """
     def __init__(self):
-        self._logger = InitLogging().init_logging()
+        self._logger = init_logging()
         self._conf = YamlParser().parser_common_conf(cf='projectConfig.yaml')
         self._project_root = root_path + os.sep
         self._driver_root_path = self._project_root + os.sep + 'drivers' + os.sep
@@ -65,11 +65,10 @@ class InitDriverUtil:
         elif distribute.get('switch'):
             # 远程驱动chrome浏览器
             if operator.contains(driver_version.lower(), 'chrome'):
-                driver_path = self._driver_root_path + 'chrome' + os.sep + self._conf.get('webbrowser').get(
-                    driver_version)
+                driver_path = '/opt/selenium/chromedriver-86.0.4240.22'
                 chrome_desired = {
                     "browserName": "chrome",
-                    "platform": "WINDOWS",
+                    "platform": "LINUX",
                     "cssSelectorsEnabled": True,
                     "javascriptEnabled": True,
                     "binary": driver_path,

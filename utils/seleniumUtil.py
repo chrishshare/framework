@@ -1,8 +1,6 @@
 # -*- coding: UTF8 -*-
-from utils.logUtil import InitLogging
+from pythonlog.utils.logUtil import init_logging
 from utils.yamlParser import YamlParser
-from utils.initDriverUtil import InitDriverUtil
-from selenium.webdriver.support.wait import WebDriverWait
 import operator
 
 
@@ -10,7 +8,7 @@ class SeleniumUtil:
     def __init__(self, driver):
         self._driver = driver
         self._yml = YamlParser()
-        self._logger = InitLogging().init_logging()
+        self._logger = init_logging()
 
     def _find_element(self, elcf, elnode):
         """
