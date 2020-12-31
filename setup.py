@@ -30,7 +30,6 @@ setup(
     # install_requires=read_requirements('framework/requirements.txt'),
     package_data={
         "framework": ["config/logger.json", "config/projectConfig.yaml", "libs/mysql-connector-java-8.0.16.jar",
-                      "libs/ojdbc6.jar", "libs/sqlite-jdbc-3.28.0.jar",
-                      "tools/JPype1-0.6.2/JPype1-0.6.2-cp36-cp36m-win_amd64.whl"]}
+                      "libs/ojdbc6.jar", "libs/sqlite-jdbc-3.28.0.jar"]}
 )
 # python setup.py bdist_wheel
