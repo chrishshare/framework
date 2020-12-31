@@ -139,9 +139,9 @@ dmypy.json
 # Cython debug symbols
 cython_debug
 
-logs/
-requirements.txt
-conf/
-execute/
-drivers
+framework/logs/
+#requirements.txt
+#conf/
+#execute/
+framework/drivers
 .idea

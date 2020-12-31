@@ -1,0 +1,59 @@
+site_name: frameworkdocs
+nav:
+#    - 首页: index.md
+    - 框架说明:
+        - 框架说明文档: frameHelp.md
+        - YAML编写规范: yamlHelp.md
+        - MarkDown编写规范: mdHelp.md
+        - 测试数据配置规范: testdata.md
+        - 页面元素配置规范: element.md
+        - 测试用例编写规范: testcase.md
+    - selenium指导:
+        - selenium介绍: selenium/intro.md
+        - 各浏览器驱动方法: selenium/webdriver.md
+        - 元素定位方法:
+              - 简介: selenium/preview.md
+              - ID定位: selenium/id.md
+              - class定位: selenium/class.md
+              - name定位: selenium/name.md
+              - tag定位: selenium/tag.md
+              - link定位: selenium/link.md
+              - xpath定位: selenium/xpath.md
+              - css定位: selenium/css.md
+        - chrome调试表达式: selenium/chrome.md
+    - 附录:
+        - selenium相关: addition/seleniumhelp.md
+        - 浏览器驱动下载: addition/browser.md
+        - python安装: addition/pythoninstall.md
+        - pip相关: addition/pip.md
+        - Pycharm安装: addition/pycharm.md
+        - CSS伪类: addition/css.md
+        - Xpath: addition/xpath.md
+        - FAQ: addition/faq.md
+    - vue:
+        - day01: vue/day1.md
+        - day02: vue/day2.md
+        - day03: vue/day3.md
+        - day04: vue/day4.md
+        - day05: vue/day5.md
+        - day06: vue/day6.md
+        - day07: vue/day7.md
+        - day08: vue/day8.md
+        - day10: vue/day10.md
+theme:
+  name: material
+  features:
+    - tabs
+    - instant
+  language: zh
+  palette:
+    primary: indigo
+    accent: indigo
+repo_url: https://github.com/chrishshare/framework
+site_description: framework
+site_favicon: imgs/favicon.ico
+markdown_extensions:
+  - admonition
+  - codehilite
+
+

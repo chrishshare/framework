@@ -1,0 +1,15 @@
+chrome:
+  localPath: {projectroot}+"/drivers/chrome/chromedirver.exe"
+  remoteUrl: http://chromedriver.storage.googleapis.com/index.html
+firefox:
+  localPath: {projectroot}+"/drivers/chrome/chromedirver.exe"
+  remoteUrl: https://github.com/mozilla/geckodriver/releases
+edge:
+  localPath: {projectroot}+"/drivers/chrome/chromedirver.exe"
+  remoteUrl: https://developer.microsoft.com/en-us/microsoft-edge/tools/webdriver/
+ie64:
+  localPath: {projectroot}+"/drivers/chrome/chromedirver.exe"
+  remoteUrl: http://selenium-release.storage.googleapis.com/index.html
+ie32:
+  localPath: {projectroot}+"/drivers/chrome/chromedirver.exe"
+  remoteUrl: http://chromedriver.storage.googleapis.com/index.html
