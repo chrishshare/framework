@@ -141,7 +141,7 @@ cython_debug
 
 logs/
 requirements.txt
-baseconf/
+conf/
 execute/
 drivers
 .idea

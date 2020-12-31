@@ -5,7 +5,7 @@ import os
 
 class YamlParser:
     def __init__(self):
-        self._common_conf = root_path + os.sep + 'baseconf' + os.sep
+        self._common_conf = root_path + os.sep + 'conf' + os.sep
         self._test_data_conf = root_path + os.sep + 'testdata' + os.sep
         self._element_conf = root_path + os.sep + 'elements' + os.sep
 
