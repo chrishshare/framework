@@ -143,5 +143,7 @@ framework/logs/
 #requirements.txt
 #conf/
 #execute/
-framework/drivers
+framework/drivers/edge
+framework/drivers/firefox
+framework/drivers/ie
 .idea
