@@ -140,9 +140,9 @@ dmypy.json
 cython_debug
 
 framework/logs/
-#requirements.txt
-#conf/
-#execute/
+requirements.txt
+conf/
+execute/
 framework/drivers/edge
 framework/drivers/firefox
 framework/drivers/ie
