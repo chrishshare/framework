@@ -5,7 +5,7 @@ JayDeBeApi==1.2.3
 JPype1==0.7.5
 numpy==1.19.0
 pytz==2019.3
-pywin32==228
+pywin32==301
 PyYAML==5.3.1
 requests==2.24.0
 selenium==3.141.0
