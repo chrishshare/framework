@@ -3,7 +3,7 @@ chardet==3.0.4
 idna==2.8
 JayDeBeApi==1.2.3
 JPype1==0.7.5
-numpy==1.19.0
+numpy==1.22.0
 pytz==2019.3
 pywin32==228
 PyYAML==5.3.1
